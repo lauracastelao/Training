@@ -1,0 +1,28 @@
+.default {
+    padding: 3vh;
+}
+
+.image img {
+    padding: 3vh;
+
+
+}
+
+.image {
+    display: flex;
+    align-items: center;
+
+}
+
+#menu {
+    display: flex;
+    align-items: center;
+    margin-top: 3px;
+    width: 300px;
+
+}
+
+input{
+    padding: 8px;
+    margin-top: 6vh;
+}

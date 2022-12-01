@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de inputs en formularios</title>
+</head>
+
+<body>
+
+    <form method="post" action="/pagina.html">
+        <!-- Lista de inputs que son más o menos autoexplicativos -->
+
+        <date></date>
+        <datetime-local></datetime-local>
+        <email></email>
+        <!-- month
+number
+text
+tel
+time
+url
+week -->
+    </form>
+    <p>
+        <label for="genero"> Sexo </label>
+        <input type="radio" name="genero" value="masculino" /> Hombre <br />
+        <input type="radio" name="genero" value="femenino" checked /> Mujer <br />
+    </p>
+    <!-- Checked por defecto -->
+    <p>
+        <label for="dispositivos">Dispositivos electrónicos</label> <br />
+        <input type="checkbox" name="dispositivos" value="pc" /> PC <br />
+        <input type="checkbox" name="dispositivos" value="table" /> Table <br />
+        <input type="checkbox" name="dispositivos" value="movil" /> Movil <br />
+
+    </p>
+
+    <input list="editor">
+    <datalist id="editor">
+        <option value="Atom">
+        <option value="NotePad">
+        <option value="VsCode">
+        <option value="Sublime">
+    </datalist>
+    <!-- Este tipo de atributo nos reconoce las palabras automaticamente, de forma que autocompleta 
+las palabras que hayamos añadido al label -->
+</body>
+
+
+
+</html>
