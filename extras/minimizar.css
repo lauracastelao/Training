@@ -1,0 +1,74 @@
+/* Es buena práctica utilizar herramientas que minimicen el código CSS antes de producción.
+Por ejemplo:
+
+img {
+    width: 100%;
+    max-height: 1000px;
+    height: 700px;
+    opacity: 1;
+    display: block;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+  }
+  *,
+  ::before,
+  ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #0093e9;
+    background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  .post {
+    width: 100%;
+    max-height: 1000px;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 25px;
+    position: relative;
+  }
+  .post:hover footer {
+    width: 100%;
+  }
+  .post img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .post footer {
+    width: 0;
+    height: 100%;
+    background: rgba(182, 181, 185, 0.71);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 400ms ease-in-out;
+  }
+  footer h2 {
+    color: #fff;
+    font-size: 3rem;
+    border: 6px solid #fff;
+    padding: 0.8em 1.9em;
+  }
+
+  Después de utilizar https://www.toptal.com/developers/cssminifier :
+
+  .post,img{max-height:1000px;height:700px}.post img,img{width:100%;display:block}img{opacity:1;transition:.5s;backface-visibility:hidden}*,::after,::before{margin:0;padding:0;box-sizing:border-box}body{font-family:"Open Sans",sans-serif;background-color:#0093e9;background-image:linear-gradient(160deg,#0093e9 0,#80d0c7 100%);display:flex;align-items:center;min-height:100vh;justify-content:center}.post{width:100%;overflow:hidden;cursor:pointer;border-radius:25px;position:relative}.post:hover footer{width:100%}.post img{height:100%}.post footer{width:0;height:100%;background:rgba(182,181,185,.71);position:absolute;top:0;display:flex;justify-content:center;align-items:center;overflow:hidden;transition:.4s ease-in-out}footer h2{color:#fff;font-size:3rem;border:6px solid #fff;padding:.8em 1.9em} */
+
+
+  /* Otra herramienta: 
+  https://unused-css.com/
+
+  Indica las clases de css que no está siendo utilizado.  */
