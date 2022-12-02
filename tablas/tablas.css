@@ -1,3 +1,7 @@
+body {
+  margin-top: 60px;
+}
+
 h1 {
   text-align: center;
 }
@@ -13,7 +17,7 @@ img {
 }
 
 #fila .gb {
-  background-color: grey;
+  background-color: rgb(221, 213, 213);
   font-size: 2em;
   text-align: center;
 }
