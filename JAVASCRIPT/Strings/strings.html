@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script type="text/javascript" >
+//    Operaciones:
+//    Concatenación de cadenas de texto 
+//    console.log('hello' +  'friend')
+//    Comparación de valores
+//    template literals Concatenar texto con variables dinámicas
+
+const user = 'Laura'
+console.log('Hello ' + user)
+console.log(`Hello ${user}`);
+
+//    typeof 
+console.log(typeof user)
+//    .lenght Longitud
+console.log(user.length)
+//    .includes() 
+console.log(user.includes('La'))
+//    .slice(start,end)
+console.log(user.slice(2))
+//    .replace('este texto', 'por este otro')
+console.log(user.replace('ura', 'sustituir'))
+//    .trim limpia espacios, común en inputs()
+const text= '       espacios espacios   ' 
+console.log(text.trim())
+//    .split, me separa en un array la cadena de texto(',')
+const geolocation= 'Calle Alegría, 9, 5C'
+geolocation.split((','))
+console.log(geolocation.split(','))
+
+
+   </script>
+</body>
+</html>
