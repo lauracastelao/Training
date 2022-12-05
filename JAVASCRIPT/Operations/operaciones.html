@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        let num = 'lau'
+        console.log(typeof num)
+        // Me devuelve en console string,porque es un texto.
+        // Si modifico el nombre por un número, me va a devolver en consola number.
+
+        console.log(2 + 'Prueba')
+        // Me devuelve 2Prueba
+        const notNumber = 2 + 'Texto'
+        console.log(typeof notNumber)
+
+        console.log(isNaN(NaN))
+        console.log(isNaN('whatever'))
+        console.log(isNaN('12'))
+        console.log(isNaN(12))
+
+        // toString 
+        // Nos va a permitir pasar una variable a ser un número
+
+        let test = 365.99
+
+        // Devuelve número
+        console.log(typeof test)
+
+        // Devuelve  string aunque sea un número mediante el método toString
+        console.log(typeof test.toString())
+
+        // Si el número contiene decimales, el método toFixed va a redondearlo.
+
+        console.log(test.toFixed(2))
+
+  
+
+
+
+
+    </script>
+</body>
+
+</html>
