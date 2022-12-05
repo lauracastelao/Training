@@ -1,0 +1,43 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // CONDICIONALES
+        // Quiero irme de viaje ¿Tengo suficiente dinero?
+        // Si, me voy de viaje
+        // No, tengo que seguir ahorrando
+
+        const flight = 100;
+        const hotel = 50;
+        const tour = 30;
+        const budget = 300;
+        const total = flight + hotel + tour
+
+
+        if (budget > total) {
+            console.log('Me voy de viaje')
+        } else {
+            console.log('No me voy de viaje')
+        }
+
+        // Otra manera de comparar,sería mediante la comprobación
+
+        if (budget > total) {
+            console.log('Si,me voy de viaje')
+        } else if (budget === total) {
+            console.log('Si,pero tengo un presupuesto ajustado')
+        } else {
+            console.log('No, tengo que seguir ahorrando')
+        }
+
+    </script>
+</body>
+
+</html>
