@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="newsletter"></p>
+    <script type="text/javascript">
+
+// Incluye en el texto de la próxima newsletter unas variables
+// dinámicas que vienen del usuario
+
+// Nombre:Laura 
+// Videojuego: Animal Crossing
+// Descuento: 20% 
+// Texto: Hola USUARIO 
+// Como regalo de bienvenida al Club de Gamers,queremos
+// ofrecer un descuento del DESCUENTO en el próximo lanzamiento
+// de tu interés JUEGO 
+// Esperamos que lo disfrutes,
+// Un saludo
+
+const NAME= 'Laura'
+const GAME= 'Animal Crossing'
+const DISCOUNT= 20
+const NEWSLETTER= `Hola ${NAME}, Como regalo de bienvenida al Club de Gamers,queremos
+ofrecer un descuento del ${DISCOUNT} en el próximo lanzamiento
+de tu interés ${GAME}
+Esperamos que lo disfrutes,
+Un saludo`
+document.querySelector('.newsletter').innerHTML =NEWSLETTER
+    </script>
+</body>
+</html>
