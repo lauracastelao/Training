@@ -1,0 +1,84 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // La función debería ejectuar una única tarea. Engloba tu lógica, es decir, se genera un nuevo scope (entorno)
+        // donde las variables que definas terminarán en esa función, a no ser que hagas return.
+
+        // Variables globales vs variables locales 
+        // Hoisting: var,let y const.
+
+        function sayHello() {
+            console.log('Soy una función')
+        }
+        sayHello()
+
+        // function sum() {
+        //     console.log(2+2)
+        // }
+        // sum()
+
+        const message = 'Soy un mensaje'
+        function sayMessage() {
+            console.log(message)
+        }
+        sayMessage()
+
+        // Parámetros
+        // Pueden recibirlos aunque no es obligatorio, pueden ejecutar lógica con ellos,
+        // pueden retornar esos valores modifciados,pueden tener un valor por defecto.
+
+        function sum(a, b) {
+            console.log(a + b)
+        }
+        sum(2, 5)
+        sum(15, 10)
+        sum(365, 789)
+
+        function sayHello(name = 'Mundo') {
+            console.log('Hola ' + name)
+        }
+        sayHello()
+        sayHello('Laura')
+
+
+        // Funciones con retorno
+        // Tiene datos de entrada y de salida; ejecuta una lógica
+        function sayFunction(name = ' nombre por defecto') {
+            return `Hello${name}`;
+        }
+        console.log(sayFunction())
+        console.log(sayFunction(' nombre por defecto secundario'))
+
+        // Función anónima
+        // No tienen nombre, se pueden asociar a una variable (Reutilizar funciones)
+
+        var funcionAnonima = function (name = ' mundo') {
+            return `Hello${name}`
+        }
+        console.log(funcionAnonima(' Laura'))
+        console.log(funcionAnonima())
+
+        // Función flecha o arrow function
+        // No tienen nombre, tienen una sintaxis reducida y mantenimiento del scope. Con o sin body.
+
+        const mensaje = 'Text example'
+        var sayHola = (name) => `Hola ${name}`
+        var sayBye = (name) => { return `Adios ${name}` }
+
+        console.log(sayHola('Laura'))
+        console.log(sayBye('Laura'))
+     // Forma más sencilla que la función anonima, no necesita return.
+
+
+    </script>
+</body>
+
+</html>
