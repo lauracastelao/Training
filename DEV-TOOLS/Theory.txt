@@ -1,0 +1,15 @@
+
+
+ Puedo coger pantallazo de un elemento en concreto (Modo device) Selecciono menú y hago click en capture screenshoot  -->
+ Breakpoint en js.Break point (Se para el script en ese punto). 
+Focus-> Global variable  
+
+
+Inspector Css 
+Consultar y modificar estilos,grid y flex,animaciones,cobertura y capas. 
+
+
+
+
+</body>
+</html>
