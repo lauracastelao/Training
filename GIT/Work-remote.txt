@@ -1,0 +1,60 @@
+Paso 1 - Git Remote
+Los repositorios remotos permiten compartir cambios desde o hacia nuestro repositorio. Las ubicaciones remotas son generalmente servidores locales, una máquina de un equipo de trabajo o bien un almacén de repositorios en la nube como GitLab o Github.
+
+Los repositorios remotos se añaden usando el comando git remote con un nombre amigable y una ubicación remota; normalmente una conexión HTTPS o SSH (para esto último no hace falta software específico como GitLab).
+
+Ejemplo: https://github.com/sharkdp/bat
+
+El nombre amigable permite referenciar la localización en otros comandos. Nuestro repositorio local puede referenciar múltiples repositorios remotos, dependiendo de nuestras necesidades.
+
+Tarea
+Trabajaremos en otro directorio. Crearemos la carpeta scn3 y esa será nuestro working directory.
+
+Agregaremos el repositorio remoto https://github.com/sharkdp/bat usando el comando git remote con el nombre amigable origin.
+
+Formato de llamada:
+
+git remote add origin /s/remote-project/1
+git fetch origin
+Avanzado
+Si usamos git clone que será tratado en una lección futura, cuando se clona el repositorio, se agrega automáticamente como descriptor amigable que lo referencia, el nombre origin.
+
+Paso 2 - Git Push
+Cuando estamos listos para compartir nuestros commits, es necesario hacer un push de ellos a un repositorio remoto usando git push. Un flujo de trabajo habitual de GIT sería llevar a cabo múltiples commits pequeños conforme vamos finalizando tareas, y hacerles un push a un repositorio remoto en hitos relevantes, como cuando finalizamos un bloque de trabajo, de manera que aseguramos la sincronización del código dentro de un equipo.
+
+El comando git push se acompaña de dos parámetros. El primero es el nombre amigable del repositorio remoto (normalmente origin). El segundo es el nombre de la rama (normalmente, rama master). Por defecto, todos los repositorios tienen una rama master donde se trabaja con el código.
+
+Tarea
+Haremos push de los commits de la rama master a la ubicación remota (origin).
+
+Para este ejercicio, vamos crearnos un usuario en gitlab. Crearemos un nuevo proyecto y nos vincularemos a él. Hacemos un pull. Posteriormente, crearemos un archivo (por ejemplo README2.md), y lo aprobaremos commit en nuestro master. Por último, lo subiremos al repositorio de Gitlab
+
+Paso 3 - Git Pull
+El comando git push permite subir los cambios a un repositorio remoto, mientras que git pull funciona de forma inversa. El comando git pull permite sincronizar cambios de un repositorio remoto en nuestra versión local.
+
+Los cambios desde el repositorio remoto son automáticamente fusionados (merge) en la rama en la que estamos trabajando en el momento de lanzar el comando.
+
+Tarea
+Crear un nuevo repositorio llamado scn3-pull.
+Descargar (pull) los cambios de una ubicación remota https://github.com/sharkdp/bat a nuestra rama master.
+Borrar los archivos siguientes appveyor.yml Cargo.lock Cargo.toml LICENSE-APACHE LICENSE-MIT README.md
+Agregar un archivo LEEME.txt
+Aprobar los cambios.
+Lanzar un “ls” para ver los archivos de la rama master.
+Hacer un checkout para cambiarnos a origin/master.
+Lanzar un “ls” para ver los archivos de la rama origin/master.
+Conmutarnos de nuevo a la rama master y volver a lanzar un comando “ls”
+En el siguiente paso exploraremos qué cambios se han efectuado.
+
+IMPORTANTE: Podemos crear y cambiar de rama con un mismo comando.
+
+git checkout -b nombre-rama
+Esto nos capacita para descargar una versión de repositorio, y luego versionar
+
+Paso 4 - Git Log
+Tal y como se ha descrito en la lección previa, podemos usar git log para ver el histórico del repositorio. El comando git show permitirá ver los cambios realizados en cada commit.
+
+En esta prueba, vamos a usar el repositorio anterior, que tenemos vinculado al proyecto BAT y vamos a filtrar los commits que lleven la cadena Fix o fix. Al más reciente de los cuales, le lanzaremos un git show <hashid> para visualizar los cambios.
+
+Avanzado
+Usar el modificador –pretty para llevar a cabo la consulta de commits en el repositorio remoto de BAT

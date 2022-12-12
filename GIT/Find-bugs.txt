@@ -1,0 +1,86 @@
+Paso 1 - Git Diff entre dos Commits
+El comando git diff es el modo más simple de comparar qué ha cambiado entre commits. Mostrará las diferencias entre dos commits.
+
+Ejemplo:
+Podemos visualizar las diferencias entre dos commits visualizando los hash-id’s
+
+$ git diff HEAD~2 HEAD
+diff --git a/README.md b/README.md
+index 77927c0..c8831b2 100644
+--- a/README.md
++++ b/README.md
+@@ -1,2 +1,3 @@
+ # ej06-branches
+
++## Y agrego este subtitulo al fichero README.md
+diff --git a/codigo.js b/codigo.js
+new file mode 100644
+index 0000000..cac68b2
+--- /dev/null
++++ b/codigo.js
+@@ -0,0 +1 @@
++mas codigo
+Posibilidades comunes:
+git diff muestra las diferencias entre el working directory y el commit. En este caso, el commit es HEAD, así que mostraría los cambios que hemos hecho desde nuestro último commit. Incluyendo los ficheros untracked o los ficheros unstaged, es decir, nuestro working directory.
+
+git diff —cached muestra las diferencias solo entre nuestro staged changes y el estado almacenado en él. Es decir, que si no he hecho “git add” a ciertos ficheros que haya modificado, no se analizan las diferencias entre ellos y el commit.
+
+Paso 2 - Git Log
+El comando git log permite ver los mensajes de commit pero por defecto no muestra una salida de lo que en realidad se modificó. Afortunadamente, el comando es extremadamente flexible y permite opciones adicionales que proporcionan visualizaciones útiles de lo sucedido en el histórico del repositorio.
+
+Ejemplos:
+Para ver una introducción o entradilla de información de los commits en una vista reducida, podemos usar el comando git log —oneline
+
+La salida de información del commit con las diferencias que se hayan producido se puede lograr agregando el parámetro -p , lanzándolo así: git log -p
+
+Esto mostraría todo el repositorio al completo… Demasiada información. Podemos delimitar un poco usando otro parámetro: -n . Con él, especificamos un límite de commits a mostrar desde HEAD.
+
+Por ejemplo; el comando:
+
+git log -p -n 2
+mostraría HEAD y HEAD~1.
+
+Si conocemos el periodo de tiempo o fechas que queremos consultar (útil para localizar versiones con garantías de estar libres de fallos, por ejemplo) podemos usar:
+
+ *--since="2 weeks ago"* y --until="1 day ago".
+(admite “1 hour ago” y otras variantes en inglés).
+
+Y como en otros comandos Git, podemos obtener un rango de salida de commits usando intervalos como por ejemplo HEAD…HEAD~1
+
+Podemos localizar patrones en el asunto del commit con el parámetro grep :
+
+Ejemplo:
+
+git log --grep="Initial"
+mostraría la salida de commits que incluyesen la cadena “Initial” en su mensaje. También podemos usar un pipeline y redirigirlo al comando unix grep normalmente. Esto puede ser muy útil cuando tratamos de localizar números de registro de bug (bug-tracking numbers).
+
+Avanzado
+Tal y como hemos visto, el log puede ser ruidoso. Probemos las posibilidades del comando git log agregándole el parámetro -m y juguemos con las consultas para obtener resultados deseados.
+
+Paso 3 - Git Blame
+Disponer de una cultura de “culpa” (blame) no es deseable, aunque puede ser útil para conocer quién trabajó en ciertas secciones del fichero para ayudar a realizar mejoras en el futuro.
+
+En estas circunstancias es donde git blame puede ser de utilidad.
+
+git blame muestra la revisión y el autor que modificó cada línea de un fichero.
+
+Ejemplo:
+Lanzar git blame sobre un fichero mostrará quién tocó cada línea.
+
+git blame list.html
+Y si conocemos las líneas que pueden estar afectadas, podemos filtrar el rango de líneas de salida:
+
+git blame -L 6,8 list.html
+industriasi@alvarez MINGW32 ~/ownCloud/temporal/git/code/ej06-branches (maste
+$ git blame README.md
+^14a0d49 (Juan Carlos Rubio 2018-09-06 16:38:29 +0000 1) # ej06-branches
+^14a0d49 (Juan Carlos Rubio 2018-09-06 16:38:29 +0000 2)
+31980bcd (Juan Carlos Rubio 2018-09-06 19:00:02 +0200 3) ## Y agrego este subtitulo al fichero README.md
+Tarea
+Probemos la ejecución y las posibilidades de estas herramientas.
+
+Creamos un nuevo proyecto. Inicializamos. Nos vinculamos a https://github.com/sharkdp/bat
+
+Hacemos pull. Buscamos logar los últimos 15 cambios.
+
+Lanzamos blame sobre el fichero src/output.rs

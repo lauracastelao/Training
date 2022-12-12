@@ -1,0 +1,28 @@
+Una de las ventajas de pequeños commits es que podemos ser quisquillosos y detallistas acerca que cuáles de esos commits queremos unir / merge.
+
+Este problema afecta particularmente a las ramas de larga vida, que se han convertido en obsoletas con una rama que tiene demasiados conflictos para hacer merge. Esto sucede de forma frecuente en muchos proyectos activos de open source.
+
+Cuando esto sucede, queremos ser capaces de picotear commits individuales y simplemente hacer merge de ellos en la rama principal. Veremos cómo hacerlo.
+
+Paso 1 – Resolviendo un conflicto de Cherry Picking
+De igual forma que hacer un merging puede resultar en un conflicto, también puede producirse en un “entresacado” o “picoteo” (cherry-pick). Los conflictos se solucionan de la misma forma que fusionando una rama bien reparando manualmente los ficheros o bien seleccionando theirs o seleccionando ours a través del comando git checkout.
+
+Si nos damos cuenta de que hemos cometido un error, podemos parar y revertir lo que hemos hecho lanzando:
+
+ git cherry-pick --abort
+Imaginemos que lanzamos un cherry-pick ejecutando por ejemplo:
+
+git cherry-pick new_branch~1
+Si este comando resultase en un conflicto de merge, se puede resolver usando el comando git checkout y seleccionando el commit elegido cuidadosamente (picked).
+
+Paso 2 - Continuando un Cherry Picking después de un conflicto
+Una vez que los conflictos se han resuelto, se puede continuar con el cherry-pick usando el comando
+
+git cherry-pick --continue
+De forma similar a merge, resolver un cherry-pick puede resultar en un commit.
+
+Tarea
+En este caso, trabajaremos conjuntamente el ejercicio para comprobar las posibilidades del comando cherry-pick .
+
+En esta lección, vamos a tratar de tomar parte del árbol del proyecto BAT y en lugar de hacer un pull completo (como un clone), nos vamos a traer dos porciones de modificaciones y las vamos a agregar con merge desmenuzado con cherry-pick.
+

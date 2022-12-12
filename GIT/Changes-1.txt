@@ -1,0 +1,103 @@
+
+Git status permite visualizar los cambios en el working directory y en la staging area comparando con el repositorio.
+
+Dado que el repositorio actual en el que se ha lanzado el git status muestra que un cambio hecho en nuestro working directory y tenemos en él un fichero previamente aprobado (por ejemplo hello.world.js) si lo modificamos y a la vez creamos otro fichero,commited.js que ni siquiera ha sido movido áun a staging area ¿Que va a mostrar?
+
+
+
+Tarea
+Modificamos fichero “hello-world.js” agregándole un comentario.
+
+Creamos un fichero commited.js
+
+Lanzamos
+
+git status
+Paso 2 - Git Diff
+El comando git diff permite comparar cambios en el working directory contra una versión previamente aprobada. Por defecto, el comando compara el working directory y el commit que llamamos HEAD (el más reciente).
+
+Si se desea comparar el working directory contra una versión más antigua, entonces podemos proporcionar su hash_id como parámetro en la llamada al comando; así: git diff .
+
+Comparar contra commits mostrará los cambios en todos los ficheros que se hayan modificado. Si deseamos comparar los cambios en un único fichero, podemos pasar su nombre como parámetro:
+
+ git diff committed.js
+Incluso ambas funcionalidades, así:
+
+ git diff <commit> committed.js.
+Avanzado
+Por defecto, la salida está en formato diff.
+
+By default the output is in the combined diff format. The command git difftool will load an external tool of your choice to view the differences.
+
+En nuestro caso, elegiremos tkdiff, descargándola y colocándola donde se ha indicado arriba.
+
+Si queremos vimdiff:
+
+git config --global diff.tool vimdiff
+Si queremos tkdiff:
+
+git config --global diff.tool vimdiff
+Tarea
+Hagamos una prueba modificando un fichero respecto de la versión anterior que esté aprobada.
+
+Ejecutemos:
+
+git diff
+git difftool
+Y veamos las posibilidades que tiene la herramienta.
+
+Paso 3 - Git Add
+Anteriormente, vimos que podíamos aprobar un cambio mediante commit siempre y cuando previamente hubiésemos agregado el archivo al área de preparación (stage) mediante el comando git add .
+
+Avanzado
+Si renombramos (mv) o borramos (rm) ficheros, se necesita especificar esos ficheros con un git add para que sean registrados como un cambio. Esto a veces resulta confuso.
+
+De forma alternativa, se puede usar git mv y el comando git rm de git para llevar a cabo la acción sobre el fichero, y además incluir el cambio en la staging area.
+
+Tarea
+Practicamos agregando cambios con el comando git add
+
+Practicamos haciendo renombrado y renombrado sin “git mv” y sin “git rm”. ¿Qué sucede?
+
+Lo solucionamos con git add.
+
+Ahora repetimos el proceso con git mv y el comando git rm. ¿Qué sucede?
+
+Paso 4 – Diferencias en estado preparado (Staged)
+Una vez que los cambios están en la staging area no se mostrarán en la salida de git diff
+
+Por defecto, git diff solo comparará el working diretory y no el staging area .
+
+Para comparar cambios en el staging area contra el commit previo, debemos proporcionar el parámetro git diff —staged . Esto posibilita asegurarnos de que hemos preparado (staged) todos nuestros cambios.
+
+Tarea
+Lanzamos git rm README.md y efectuamos un commit.
+Ahora lanzar “git diff” y “git diff —staged” y ver si hay diferencia.
+Creamos un archivo README.md con nano y agregamos contenido.
+Posteriormente, hemos de lanzar “git diff” y “git diff —staged” y ver si hay diferencia.
+Ahora lanzamos git add de ese fichero recién creado.
+Si lanzamos ahora ambos comandos, ¿hay alguna diferencia?
+
+Paso 5 - Git Log
+El comando git log permite visualizar el histórico del repositorio y el commit log .
+
+Avanzado
+El formato de la salida de log es muy flexible. Por ejemplo para sacar cada commit en una única línea, el comando es:
+
+ git log --pretty=format:"%h %an %ar - %s"
+También funciona así:
+
+git log --pretty="%h %an %ar - %s"
+Podemos encontrar más detalles y opciones usando:
+
+ git log --help
+Tarea
+Probar la salida del comando git log agregando las opciones descritas.
+
+Paso 6 - Git Show
+Mientras que git log te dice el autor del commit y el mensaje, para visualizar los cambios efectuados en el commit se necesita usar el comando git show .
+
+Al igual que otros comandos, por defecto, “git show” muestra los cambios del commit HEAD. Podemos usar el comando git show para visualizar cambios más antiguos.
+
+Tarea
+Usar git log para obtener varios números de commit. Lanzar git show con dos de ellos.

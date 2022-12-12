@@ -1,0 +1,22 @@
+Paso 1 - Git Merge
+El comando git fetch descarga los cambios en una rama separada que puede ser comprobada (checked out) y fusionada (merge). Durante un merge git intentará automáticamente combinar los commits.
+
+Cuando no existen conflictos, el merge será tratado rápidamente y no tendremos que hacer nada. Si sucede un conflicto, entonces recibiremos un error y el repositorio entrará en estado merge.
+
+Tarea
+Creamos un directorio que inicializamos.
+
+Creamos un archivo README.md y le agregamos contenido. Este fichero provocará una colisión.
+
+Lo agregamos a staging y hacemos commit.
+
+Nos vincularemos al proyecto BAT accesible en https://github.com/sharkdp/bat
+
+Trataremos de lanzar un merge y resolver el conflicto.
+
+Avanzado
+El comando git pull es una combinación de fetch y de merge.
+
+En lugar de un fetch+merge, se puede usar:
+
+git pull origin master –allow-unrelated-histories

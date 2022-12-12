@@ -1,0 +1,111 @@
+Paso 1 - Git Checkout
+Cuando trabajamos con Git, una lección habitual es deshacer cambios en nuestro working directory. El comando git checkout reemplazará todo en el working directory a la última versión aprobada (commited).
+
+Si deseamos reemplazar todos los ficheros hacia el working directory, usamos el carácter punto (“.”) para referenciar al directorio actual. En otro caso, se proporciona una lista de directorios/ficheros separados por espacios.
+
+Como sucede que git checkout acepta tanto nombres de rama, como ficheros (o path de ellos), se puede usar el indicador “—” para forzar a Git a interpretar que cualquier cosa que venga después de “—”, es un nombre de fichero (o todos los ficheros); en otro caso, se interpretará como el nombre de una rama.
+
+​ Se ilustra en este ejemplo la diferencia:
+
+Supongamos que tengo un archivo llamado master pero también una rama llamada master .
+
+El comando
+
+git checkout master
+Haría un checkout de la rama, pero el comando:
+
+git checkout -- master
+chequearía el fichero master.
+
+El comando
+
+git checkout HEAD -- .
+forzaría a reemplazar TODOS LOS ARCHIVOS (de ahí el “—”) lo que teníamos en el último commit a nuestro working directory (que es el “.”).
+
+Si tenemos algo en staging y queremos eliminarlo de staging, entonces usamos:
+
+ git reset HEAD fichero
+Avanzado
+Git checkout, no toca el área de preparación o stagging rea. Para eso tenemos un git reset.
+
+Tarea
+Usar git checkout para limpiar o deshacer los cambios del working directory.
+
+Pasos:
+
+Creamos un directorio de trabajo, entramos en él y lo inicializamos.
+Creamos el README.md, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero1, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero2, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero3, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Hacemos un borrado de “fichero” y nos aseguramos de que el borrado esté en staging*.
+Lanzamos “ls -l”
+Luego reemplazamos todo el contenido del directorio con lo que existiese en el HEAD de la rama master.
+Paso 2 - Git Reset
+Si estamos en la mitad de un commit y tenemos agregados ficheros a la staging area pero cambiamos de idea, entonces necesitaremos usar el comando git reset . El comando git reset eliminará a los ficheros de la staging area y los dejará en el working directory en estado untracked (no registrados).
+
+Si deseamos sacar todos los ficheros de la staging area, debemos usar el carácter “.” para indicarlo. En otro caso, se admite una lista de ficheros separados por espacios.
+
+Esto es muy útil cuando intentamos mantener nuestros commits pequeños y concentrados de tal forma que podamos sacarlos de staging si hemos añadido demasiados de una tacada.
+
+Tarea
+Creamos un escenario de nuestra elección. Hacemos un par de commits.
+
+Por último creamos un fichero más. Lo agregamos a staging.
+
+Lanzamos git reset para dejarlo en estado untracked.
+
+Paso 3 - Git Reset Hard
+El comando git reset —hard combinará tanto el efecto de un git checkout como el de un git reset en un único comando. El resultado es que se eliminarán los ficheros de la staging area y del working directory de tal forma que volvemos a los mismos contenidos que estaban presentes en el último commit. Es un comando al que hay que tenerle respeto, porque podemos perder información si no estamos muy seguros de lo que estamos haciendo.
+
+Avanzado
+Usar HEAD limpiará el estado hacia lo que había en el último commit; si usamos git reset —hard nos posibilita volver al estadod e cualquier commit. Recordemos que HEAD es un alias para el has del último commit de la rama.
+
+Tarea
+Pasos:
+
+Creamos un directorio de trabajo, entramos en él y lo inicializamos.
+Creamos el README.md, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero1, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero2, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero3, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos fichero4 y fichero5, los incluimos en staging pero NO APROBAMOS.
+Lanzamos “ls -l” y “git status”.
+Hacemos un reset hard hacia HEAD-3 y lanzamos “ls -l” y “git status”.
+Debemos estar en un estado sin staging y con la misma “foto” que en HEAD-3.
+Paso 4 - Git Revert
+Si ya has aprobado fichero pero te has dado cuenta de que has cometido un error, entonces el comando git revert te permite deshacer los cambios que se hayan producido en ese commit concreto. El comando creará un nuevo commit que tiene la afección invertida del commit al que hemos revertido (de modo que si volvemos a él, nos quedamos como estábamos).
+
+Si aún no hemos subido (pushed) los cambios, entonces el comando git reset HEAD~1 tiene la misma afección y borrará el último commit que ha sido creado por el revert.
+
+Tarea
+Usar git revert para revertir los cambios del último commit.
+
+Para ello:
+Creamos un directorio de trabajo, entramos en él y lo inicializamos.
+Creamos el README.md, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero1, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero2, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero3, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Deshacemos el initial commit y comprobamos si ha desaparecido algún fichero.
+Avanzado
+La motivación subyacente de crear nuevos commits es que reescribir la historia en GIT es algo desaconsejado. Si has subido (pushed) tus commits, entonces deberías crear nuevos commits para deshacer los cambios provocados, ya que otros usuarios podrían a ver hecho commits mientras tanto.
+
+Paso 5 - Git Revert
+Para hacer revert de múltiples commits de una tacada usamos el carácter ~ para significar “menos”. Por ejemplo, HEAD~2, son dos commits desde HEAD. Esto puede combinarse con los caracteres “…” que indican el rango entre dos commits.
+
+Tarea
+Usamos el comando git revert HEAD…HEAD~2 para revertir los commits hechos entre HEAD y HEAD~2.
+
+Para ello:
+
+Creamos un directorio de trabajo, entramos en él y lo inicializamos.
+Creamos el README.md, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero1, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero2, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Creamos el fichero3, le agregamos contenido, lo incluimos en staging y lo aprobamos.
+Ahora, usamos el comando git revert tal y como se ha propuesto.
+Avanzado
+Si en un revert, no tenemos ganas de pasar uno a uno por los cambios del rango seleccionado, se puede hacer así:
+
+git revert HEAD...HEAD~2 --no-edit
