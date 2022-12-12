@@ -1,0 +1,27 @@
+Con el comando:
+
+git checkout <hash-id>
+Entramos en modo desconectado, pero tenemos una foto idéntica a la que teníamos en ese instante del tiempo.
+
+En subversion hubiera sido con el comando:
+
+svn up -r800
+(suponiendo la versión 800)
+
+Para volver al HEAD, escribimos:
+
+git checkout master
+o bien
+
+git checkout -
+(un único guion al final del comando).
+
+Tarea:
+Movernos al commit inicial y al HEAD y comprobar cómo los ficheros aparecen y desaparecen
+
+Nota:
+git stash guarda el estado que tengamos en ese momento sin aprobar o en staged.
+
+Se recupera con:
+
+git stash apply
