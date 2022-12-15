@@ -1,0 +1,13 @@
+Los objetos son una colección de propiedades o atributos con una clave valor.
+
+Por ejemplo,el objeto persona.
+
+
+{
+    nombre: Jhon
+edad: 30
+hablar: function() {...}
+{
+
+}
+

@@ -1,4 +1,4 @@
-Paso 1 - Git Diff entre dos Commits
+Paso 1 -  entre dos Commits
 El comando git diff es el modo más simple de comparar qué ha cambiado entre commits. Mostrará las diferencias entre dos commits.
 
 Ejemplo:
