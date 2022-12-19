@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #mi_id_de_prueba {
+            color:red;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Mi primera clase práctica de DOM</p>
+
+    <script type="text/javascript">
+        var parrafo = document.getElementsByTagName("p")
+        parrafo[0].id = 'mi_id_de_prueba'
+        console.log(parrafo);
+        parrafo[0].style.color = 'blue';
+        parrafo[0].style.backgroundColor= 'pink';
+        // Accediendo a estilos directamente desde el Nodo
+
+    </script>
+</body>
+
+</html>
